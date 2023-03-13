@@ -1,0 +1,60 @@
+{
+  "posts": [
+    {
+      "title": "First Post",
+      "body": "First Content",
+      "id": 1
+    }
+  ],
+  "users": [
+    {
+      "email": "skcjsfn@nate.com",
+      "password": "111qqq!!!",
+      "name": "김민성",
+      "id": 1
+    },
+    {
+      "email": "skcjsfn@naver.com",
+      "password": "111qqq!!!",
+      "name": "만성",
+      "id": 2
+    },
+    {
+      "email": "dsadas@nate.com",
+      "password": "asdasdad",
+      "id": 3
+    }
+  ],
+  "comment": [
+    {
+      "comment": "comment",
+      "email": "skcjsfn@nate.com",
+      "name": "김민성",
+      "date": "2023-03-02",
+      "no": 505642,
+      "id": 1
+    },
+    {
+      "comment": "ㅇㅇㅇㅇ",
+      "email": "skcjsfn@nate.com",
+      "name": "김민성",
+      "date": "2023-03-12",
+      "no": 315162,
+      "id": 2
+    },
+    {
+      "comment": "213123",
+      "email": "skcjsfn@nate.com",
+      "name": "김민성",
+      "date": "2023-03-12",
+      "no": 315162,
+      "id": 3
+    },
+    {
+      "comment": "ㄹㅎㄹㅎㄹㄹ",
+      "date": "2023-03-12",
+      "no": "",
+      "id": 4
+    }
+  ]
+}

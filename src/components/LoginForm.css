@@ -1,0 +1,38 @@
+.loginform {
+  width: 400px;
+  text-align: center;
+  height: 100vh;
+  display: inline-block;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login_title {
+  margin: 30px 0px;
+  color: #2f95f6;
+  font-size: 35px;
+}
+
+label.login_info {
+  display: flex;
+  margin: 10px 0px;
+  color: #3d3a3a;
+}
+
+.login_btn {
+  height: 65px;
+  border: none;
+  border-radius: 10px;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: #c4e1fb;
+  color: white;
+  padding: 18px 27px;
+  cursor: pointer;
+}
+.login_btn:hover {
+  background-color: #2f95f6;
+}

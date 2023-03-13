@@ -1,0 +1,216 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+html {
+  --scrollerGrey: 219, 219, 219;
+  --lightGrey: 227, 227, 227;
+  --darkerGrey: 200, 200, 200;
+  --tmdbDarkBlue: 3, 37, 65;
+  --tmdbLightBlue: 1, 180, 228;
+  --tmdbLighterGreen: 192, 254, 207;
+  --tmdbLightGreen: 30, 213, 169;
+  --tmdbLogoGreen: 144, 206, 161;
+  --tmdbLogoOrange: 253, 193, 112;
+  --tmdbLogoRed: 217, 59, 99;
+  --accountSilver: 149, 149, 149;
+  --accountPink: 234, 20, 140;
+  --accountPurple: 128, 91, 231;
+  --accountGreen: 1, 210, 119;
+  --accountTeal: 1, 198, 172;
+  --accountLightBlue: 1, 180, 228;
+  --accountBlue: 1, 119, 210;
+  --accountOrange: 210, 119, 1;
+  --accountYellow: 210, 144, 1;
+  --accountRed: 212, 2, 66;
+  --imageBorderRadius: 8px;
+  --maxPrimaryPageWidth: 1400px;
+}
+
+div.container {
+  max-width: var(--maxPrimaryPageWidth);
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+section.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+div.column_content {
+  width: 80%;
+}
+
+div.column_content h2 {
+  color: #2f95f6;
+}
+
+div.content h2 {
+  font-weight: 700;
+  margin-bottom: 0;
+}
+div.error_status.errcard {
+  margin-top: 30px;
+  border: 1px solid rgba(var(--lightGrey), 1);
+  border-radius: var(--imageBorderRadius);
+  overflow: hidden;
+  margin-bottom: 30px;
+  display: none;
+}
+
+.errcard {
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+  border: 1px solid rgba(var(--lightGrey), 1);
+  background-color: #fff;
+}
+
+div.error_status div.carton {
+  margin: 0;
+  border: none;
+}
+
+div.error_status.card div.carton > a,
+div.error_status.card div.carton > a:hover {
+  cursor: default;
+  text-decoration: none;
+}
+.background_color.red,
+.k-button.background_color.red,
+.k-button.background_color.red:hover {
+  background-color: rgba(var(--accountRed), 1);
+}
+
+div.error_status h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 !important;
+  font-weight: 600 !important;
+  font-size: 1.2em !important;
+  line-height: 1.2em !important;
+  padding: 20px !important;
+  color: #fff !important;
+  border: none !important;
+}
+div.error_status h2 > span {
+  display: inline-flex;
+  align-items: center;
+  align-content: center;
+}
+.svg.invert {
+  filter: invert(1);
+}
+.glyphicons_v2 {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1em;
+  min-height: 1em;
+  width: 1em;
+  height: 1em;
+  line-height: inherit;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: inherit;
+  box-sizing: border-box;
+}
+
+.k-form-field {
+  display: block;
+  margin-top: 1rem;
+}
+
+.k-form-field > span {
+  display: flex;
+  margin-left: 30%;
+}
+
+.k-form-field input {
+  width: 40%;
+  border-radius: var(--imageBorderRadius);
+  height: 25px;
+}
+
+.reset {
+  /* appearance: auto; */
+  /* user-select: none; */
+  /* white-space: pre; */
+  /* align-items: flex-start; */
+  text-align: center;
+  cursor: default;
+  box-sizing: border-box;
+  background-color: buttonface;
+  color: buttontext;
+  padding: 2px 20px;
+  border-width: 1px;
+  border-style: outset;
+  border-color: buttonborder;
+  border-image: initial;
+  display: inline-block;
+  margin-left: 20px;
+  font-size: small;
+}
+.message {
+  position: relative;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 24px;
+  letter-spacing: -1px;
+  bottom: -10px;
+  left: 0;
+}
+.success {
+  color: #3d3a3a;
+}
+.error {
+  color: #ff2727;
+}
+
+.k-button {
+  height: 65px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: #2f95f6;
+  color: white;
+  cursor: pointer;
+}
+.k-button-off {
+  height: 65px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: not-allowed;
+  background-color: #c4e1fb;
+  color: white;
+}
+
+.return {
+  display: inline;
+}
+
+.cancel-button {
+  height: 65px;
+  margin: 20px 0px 0px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: #ff2727;
+  color: white;
+  padding: 18px 27px;
+}
