@@ -28,9 +28,8 @@ function CommentForm(props) {
         return;
       }
       const apiUrl = props.commentApiUrl;
-      setCommentArray({ ...commentArray, no: modivId });
       try {
-        const data = await axios.post(apiUrl, commentArray);
+        const data = await axios.post(apiUrl, { ...commentArray, no: modivId });
         console.log(data);
       } catch (e) {
         console.log(e);
@@ -47,11 +46,10 @@ function CommentForm(props) {
       [name]: value,
     });
   };
-  console.log("form");
   return (
     <div className="commentContainer">
       <div className="commnentUser">
-        <p className="commnent_userName">김민성{props.MovieId}</p>
+        <p className="commnent_userName">김민성</p>
       </div>
       <form className="commentWrap">
         <input

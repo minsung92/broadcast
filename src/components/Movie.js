@@ -50,12 +50,11 @@ function Movie(props) {
   }
 
   useEffect(() => {
-    console.log("useeffect");
     fetchData();
   }, []);
   const average = Math.round(movie.vote_average * 10) / 10;
   const movieTime = Math.round((movie.runtime / 60) * 10) / 10;
-  console.log("movie :: ==> " + movie.id);
+
   return (
     <>
       <div className="header large border first">
@@ -151,18 +150,23 @@ function Movie(props) {
           </div>
         </div>
       </div>
-      {/* <Comment
+      <Comment
         title={movie.title}
-        MovieId={movie.id}
+        movieId={movie.id}
         commentApiUrl={commentApiUrl}
+        userInfo={props.UserInfo}
       >
         <CommentForm
           MovieId={movie.id}
           UserInfo={props.UserInfo}
           commentApiUrl={commentApiUrl}
         />
-        <CommentList MovieId={movie.id} commentApiUrl={commentApiUrl} />
-      </Comment> */}
+        <CommentList
+          MovieId={movie.id}
+          commentApiUrl={commentApiUrl}
+          UserInfo={props.UserInfo}
+        />
+      </Comment>
     </>
   );
 }

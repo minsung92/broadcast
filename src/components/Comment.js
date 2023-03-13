@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-function Movie_Comment({ children, title }) {
+function Movie_Comment({ children, title, userInfo, movieId, commentApiUrl }) {
+  const [mcount, setMcount] = useState("");
+  const apiUrl = commentApiUrl;
+
+  useEffect(async () => {
+    const response = await axios.get(`${apiUrl}?no=${movieId}`);
+    setMcount({
+      ...mcount,
+      mcount: response.length,
+    });
+  }, []);
+
   return (
     <>
       <h2>

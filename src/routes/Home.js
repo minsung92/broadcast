@@ -4,35 +4,35 @@ import { moviesApi } from "../api";
 import React, { Component } from "react";
 
 class Home extends React.Component {
-  state = {
-    movies: [],
-  };
-  InputData = (data) => {
-    const { movies } = this.state;
-    //console.log("inputData >>>>> :" + JSON.stringify(movies));
-    const newMovies = movies.concat(data);
-    this.setState({
-      movies: newMovies,
-    });
-  };
+  // state = {
+  //   movies: [],
+  // };
+  // InputData = (data) => {
+  //   const { movies } = this.state;
+  //   //console.log("inputData >>>>> :" + JSON.stringify(movies));
+  //   const newMovies = movies.concat(data);
+  //   this.setState({
+  //     movies: newMovies,
+  //   });
+  // };
 
   getNowplay = async () => {
     const nowPlaying = await moviesApi.nowPlaying();
-    this.InputData({
+    this.props.InputData({
       type: "nowPlaying",
       title: "nowPlaying",
       list: nowPlaying.data.results,
       isLoading: false,
     });
     const upcoming = await moviesApi.upcoming();
-    this.InputData({
+    this.props.InputData({
       type: "upcoming",
       title: "upcoming",
       list: upcoming.data.results,
       isLoading: false,
     });
     const popular = await moviesApi.popular();
-    this.InputData({
+    this.props.InputData({
       type: "popular",
       title: "popular",
       list: popular.data.results,
@@ -46,7 +46,7 @@ class Home extends React.Component {
   }
 
   render() {
-    const movies = this.state.movies;
+    const movies = this.props.movies;
     return (
       <section className="container">
         {movies.map((movie, index) => {

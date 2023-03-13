@@ -17,8 +17,18 @@ const NotFound = () => {
 
 class App extends React.Component {
   state = {
+    movies: [],
     userInfo: [],
     userOut: true,
+  };
+
+  InputData = (data) => {
+    const { movies } = this.state;
+    //console.log("inputData >>>>> :" + JSON.stringify(movies));
+    const newMovies = movies.concat(data);
+    this.setState({
+      movies: newMovies,
+    });
   };
 
   logOut = () => {
@@ -47,7 +57,6 @@ class App extends React.Component {
   render() {
     const UserInfo = this.state.userInfo;
     const UserOut = this.state.userOut;
-    console.log("App");
     return (
       <>
         <BrowserRouter>
@@ -64,7 +73,13 @@ class App extends React.Component {
             />
           </header>
           <Routes>
-            <Route path="/" exact={true} element={<Home />} />
+            <Route
+              path="/"
+              exact={true}
+              element={
+                <Home InputData={this.InputData} movies={this.state.movies} />
+              }
+            />
             <Route path="/movie/:id" element={<Movie UserInfo={UserInfo} />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/Joinform" element={<JoinForm />} />
