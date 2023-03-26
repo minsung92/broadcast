@@ -151,22 +151,11 @@ function Movie(props) {
         </div>
       </div>
       <Comment
-        title={movie.title}
-        movieId={movie.id}
+        key={movie.id + "c"}
+        MovieId={movie.id}
+        UserInfo={props.UserInfo}
         commentApiUrl={commentApiUrl}
-        userInfo={props.UserInfo}
-      >
-        <CommentForm
-          MovieId={movie.id}
-          UserInfo={props.UserInfo}
-          commentApiUrl={commentApiUrl}
-        />
-        <CommentList
-          MovieId={movie.id}
-          commentApiUrl={commentApiUrl}
-          UserInfo={props.UserInfo}
-        />
-      </Comment>
+      />
     </>
   );
 }
