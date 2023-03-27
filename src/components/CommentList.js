@@ -7,15 +7,13 @@ function CommentList(props) {
   const list = props.commentList;
 
   function onClickDeleteButton(movieId) {
-    console.log(typeof movieId);
-    axios.delete(`${apiUrl}?id=${movieId}`);
+    axios.delete(`${apiUrl}/${movieId}`);
     props.loading(true);
   }
 
   if (list.length === 0 || list === undefined || list === "") {
     return (
       <>
-        <h2>Comment_List</h2>
         <span>데이터 없음</span>
       </>
     );

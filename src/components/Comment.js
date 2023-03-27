@@ -10,25 +10,26 @@ function Movie_Comment({ children, UserInfo, MovieId, commentApiUrl }) {
   const [loading, setLoading] = useState(true);
   const [list, setList] = useState([]);
 
-  async function getCountData() {
+  async function getData() {
     const response = await axios.get(`${apiUrl}?no=${movieId}`);
     setMcount(response.data.length);
-  }
-
-  async function getListData() {
-    const response = await axios.get(`${apiUrl}?no=${movieId}`);
     setList(response.data);
     setLoading(false);
   }
 
-  const chagneLoading = (st) => {
-    setLoading(st);
-  };
+  // async function getListData() {
+  //   const response = await axios.get(`${apiUrl}?no=${movieId}`);
+  //   setList(response.data);
+  //   setLoading(false);
+  // }
+
+  // const chagneLoading = (st) => {
+  //   setLoading(st);
+  // };
 
   useEffect(() => {
     if (loading) {
-      getListData();
-      getCountData();
+      getData();
     }
   }, [list, loading]);
 

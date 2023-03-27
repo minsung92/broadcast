@@ -53,7 +53,7 @@ function CommentForm(props) {
   return (
     <div className="commentContainer">
       <div className="commnentUser">
-        <p className="commnent_userName">김민성{modivId}</p>
+        <p className="commnent_userName">김민성</p>
       </div>
       <form className="commentWrap">
         <input
