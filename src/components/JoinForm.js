@@ -36,12 +36,7 @@ function JoinForm() {
   }, [isPasswordConfirm]);
 
   const inputChangeHandler = () => {
-    if (
-      isName === true &&
-      isEmail === true &&
-      isPassword === true &&
-      isPasswordConfirm === true
-    ) {
+    if (isName && isEmail && isPassword && isPasswordConfirm) {
       const btnDisplay = document.getElementById("sign_up_button");
       btnDisplay.classList.remove("k-button-off");
       btnDisplay.classList.add("k-button");

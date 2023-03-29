@@ -8,14 +8,16 @@ function CommentForm(props) {
   const month = ("0" + (ndate.getMonth() + 1)).slice(-2);
   const day = ("0" + ndate.getDate()).slice(-2);
   const dateStr = year + "-" + month + "-" + day;
-  const modivId = props.MovieId;
+  const movieId = props.MovieId;
+  const actionType = props.actionType;
+  const movieNo = props.movieNo;
 
   const [commentArray, setCommentArray] = useState({
-    comment: "",
+    comment: props.inputValue,
     email: props.UserInfo.email,
     name: props.UserInfo.name,
     date: dateStr,
-    no: "",
+    no: 0,
   });
 
   const { comment } = commentArray;
@@ -29,7 +31,17 @@ function CommentForm(props) {
       }
       const apiUrl = props.commentApiUrl;
       try {
-        const data = await axios.post(apiUrl, { ...commentArray, no: modivId });
+        if (actionType === "change") {
+          await axios.put(`${apiUrl}/${movieNo}`, {
+            ...commentArray,
+            no: movieId,
+          });
+        } else {
+          await axios.post(apiUrl, {
+            ...commentArray,
+            no: movieId,
+          });
+        }
         //console.log(data);
         setCommentArray({
           comment: "",
@@ -41,6 +53,7 @@ function CommentForm(props) {
     },
     [commentArray]
   );
+
   const onClose = (e) => {};
 
   const onChange = (e) => {
@@ -50,6 +63,7 @@ function CommentForm(props) {
       [name]: value,
     });
   };
+
   return (
     <div className="commentContainer">
       <div className="commnentUser">
@@ -84,7 +98,7 @@ function CommentForm(props) {
             comment.length > 0 ? "submitCommnetActive" : "submitCommnetInactive"
           }
           onClick={onComment}
-          value="댓글"
+          value={actionType === "input" ? "댓글" : "댓글수정"}
         />
       </form>
     </div>

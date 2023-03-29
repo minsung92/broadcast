@@ -17,16 +17,6 @@ function Movie_Comment({ children, UserInfo, MovieId, commentApiUrl }) {
     setLoading(false);
   }
 
-  // async function getListData() {
-  //   const response = await axios.get(`${apiUrl}?no=${movieId}`);
-  //   setList(response.data);
-  //   setLoading(false);
-  // }
-
-  // const chagneLoading = (st) => {
-  //   setLoading(st);
-  // };
-
   useEffect(() => {
     if (loading) {
       getData();
@@ -43,6 +33,9 @@ function Movie_Comment({ children, UserInfo, MovieId, commentApiUrl }) {
         UserInfo={UserInfo}
         commentApiUrl={commentApiUrl}
         loading={setLoading}
+        actionType="input"
+        inputValue=""
+        movieNo="0"
       />
       <CommentList
         key={movieId + "cl"}
