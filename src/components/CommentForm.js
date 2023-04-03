@@ -36,17 +36,18 @@ function CommentForm(props) {
             ...commentArray,
             no: movieId,
           });
+          props.updateState(false);
         } else {
           await axios.post(apiUrl, {
             ...commentArray,
             no: movieId,
           });
+          props.loading(true);
         }
         //console.log(data);
         setCommentArray({
           comment: "",
         });
-        props.loading(true);
       } catch (e) {
         console.log(e);
       }
@@ -67,7 +68,11 @@ function CommentForm(props) {
   return (
     <div className="commentContainer">
       <div className="commnentUser">
-        <p className="commnent_userName">김민성</p>
+        {actionType === "input" ? (
+          <p className="commnent_userName">김민성</p>
+        ) : (
+          ""
+        )}
       </div>
       <form className="commentWrap">
         <input

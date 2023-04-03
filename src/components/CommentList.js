@@ -8,6 +8,7 @@ function CommentList(props) {
   const list = props.commentList;
   const userInfo = props.UserInfo;
   const [isEdits, setIsEdits] = useState(0);
+  const [isUpdate, setIsUpdate] = useState(true);
 
   function onClickDeleteButton(movieId) {
     axios.delete(`${apiUrl}/${movieId}`);
@@ -17,6 +18,11 @@ function CommentList(props) {
   function onClickModeButton(listId) {
     setIsEdits(listId);
   }
+
+  useEffect(() => {
+    props.loading(true);
+    setIsEdits(0);
+  }, [isUpdate]);
 
   if (list.length === 0 || list === undefined || list === "") {
     return (
@@ -52,8 +58,8 @@ function CommentList(props) {
                 MovieId={movieId}
                 UserInfo={userInfo}
                 commentApiUrl={apiUrl}
-                loading={props.loading(true)}
                 actionType="change"
+                updateState={setIsUpdate}
                 inputValue={item.comment}
                 movieNo={item.id}
               />
