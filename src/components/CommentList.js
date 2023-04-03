@@ -32,24 +32,32 @@ function CommentList(props) {
     );
   }
   return (
-    <>
-      <h2>Comment_List</h2>
+    <div className="review_list">
       <ul>
         {list.map((item) => {
           return item && isEdits !== item.id ? (
             <li>
-              {item.comment}
-              <input
-                type="button"
-                value="수정"
-                onClick={() => onClickModeButton(item.id)}
-              />
-              <input
-                key={item.id}
-                type="button"
-                value="삭제"
-                onClick={() => onClickDeleteButton(item.id)}
-              />
+              <tr>
+                <td>{item.comment}</td>
+                <td>
+                  <p className="review_info">
+                    작성날짜 : {item.date} <br /> 작성자 : {item.name}
+                  </p>
+                </td>
+                <td>
+                  <input
+                    type="button"
+                    value="수정"
+                    onClick={() => onClickModeButton(item.id)}
+                  />
+                  <input
+                    key={item.id}
+                    type="button"
+                    value="삭제"
+                    onClick={() => onClickDeleteButton(item.id)}
+                  />
+                </td>
+              </tr>
             </li>
           ) : isEdits === item.id ? (
             <li>
@@ -69,7 +77,7 @@ function CommentList(props) {
           );
         })}
       </ul>
-    </>
+    </div>
   );
 }
 

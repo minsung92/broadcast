@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CommentForm from "./CommentForm";
 import CommentList from "./CommentList";
+import "./Movie.css";
 
 function Movie_Comment({ children, UserInfo, MovieId, commentApiUrl }) {
   const [mcount, setMcount] = useState(0);
@@ -24,28 +25,34 @@ function Movie_Comment({ children, UserInfo, MovieId, commentApiUrl }) {
   }, [list, loading]);
 
   return (
-    <>
-      <h2>Comment</h2>
-      <h2>댓글 {mcount} 개</h2>
-      <CommentForm
-        key={movieId + "cf"}
-        MovieId={movieId}
-        UserInfo={UserInfo}
-        commentApiUrl={commentApiUrl}
-        loading={setLoading}
-        actionType="input"
-        inputValue=""
-        movieNo="0"
-      />
-      <CommentList
-        key={movieId + "cl"}
-        MovieId={movieId}
-        commentApiUrl={commentApiUrl}
-        UserInfo={UserInfo}
-        commentList={list}
-        loading={setLoading}
-      />
-    </>
+    <div className="movie_panel">
+      <div className="review">
+        <h3> - 사용자 리뷰 - </h3>
+        <h3>댓글 {mcount}개</h3>
+      </div>
+      <div className="review_form">
+        <CommentForm
+          key={movieId + "cf"}
+          MovieId={movieId}
+          UserInfo={UserInfo}
+          commentApiUrl={commentApiUrl}
+          loading={setLoading}
+          actionType="input"
+          inputValue=""
+          movieNo="0"
+        />
+      </div>
+      <div className="content">
+        <CommentList
+          key={movieId + "cl"}
+          MovieId={movieId}
+          commentApiUrl={commentApiUrl}
+          UserInfo={UserInfo}
+          commentList={list}
+          loading={setLoading}
+        />
+      </div>
+    </div>
   );
 }
 

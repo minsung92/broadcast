@@ -12,6 +12,10 @@ function CommentForm(props) {
   const actionType = props.actionType;
   const movieNo = props.movieNo;
 
+  const [firstFocus, setFirstFocus] = useState(false);
+  const [isFocus, setIsFocus] = useState(false);
+  const [isInput, setIsInput] = useState(false);
+
   const [commentArray, setCommentArray] = useState({
     comment: props.inputValue,
     email: props.UserInfo.email,
@@ -55,10 +59,15 @@ function CommentForm(props) {
     [commentArray]
   );
 
-  const onClose = (e) => {};
-
   const onChange = (e) => {
     const { name, value } = e.target;
+
+    if (e.target.value) {
+      setIsInput(true);
+    } else {
+      setIsInput(false);
+    }
+
     setCommentArray({
       ...commentArray,
       [name]: value,
@@ -67,14 +76,19 @@ function CommentForm(props) {
 
   return (
     <div className="commentContainer">
-      <div className="commnentUser">
+      {/* <div className="commnentUser">
         {actionType === "input" ? (
           <p className="commnent_userName">김민성</p>
         ) : (
           ""
         )}
-      </div>
-      <form className="commentWrap">
+      </div> */}
+      <div className="commentWrap Comment_input_box">
+        {isFocus === false ? (
+          <div className="Comment_line"></div>
+        ) : (
+          <div className="Comment_line_inAni"></div>
+        )}
         <input
           name="comment"
           type="text"
@@ -84,6 +98,11 @@ function CommentForm(props) {
           onKeyUp={(e) => {
             e.target.value.length > 0 ? setIsValid(true) : setIsValid(false);
           }}
+          onFocus={() => {
+            setIsFocus(true);
+            setFirstFocus(true);
+          }}
+          onBlur={() => setIsFocus(false)}
         />
         <input
           type="hidden"
@@ -91,21 +110,35 @@ function CommentForm(props) {
           onChange={onChange}
           name="no"
         />
-        <input
-          type="button"
-          className="closeBtn"
-          onClick={onClose}
-          value="취소"
-        />
-        <input
-          type="button"
-          className={
-            comment.length > 0 ? "submitCommnetActive" : "submitCommnetInactive"
-          }
-          onClick={onComment}
-          value={actionType === "input" ? "댓글" : "댓글수정"}
-        />
-      </form>
+        <div>
+          {firstFocus ? (
+            <>
+              <div
+                onClick={() => setFirstFocus(false)}
+                id="Comment_btn1"
+                className="Comment_buttons"
+              >
+                취소
+              </div>
+              {!isInput ? (
+                <div id="Comment_btn2" className="Comment_buttons">
+                  {actionType === "input" ? "댓글" : "댓글수정"}
+                </div>
+              ) : (
+                <div
+                  id="Comment_btn2_active"
+                  className="Comment_buttons"
+                  onClick={onComment}
+                >
+                  {actionType === "input" ? "댓글" : "댓글수정"}
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="Comment_buttons"></div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
