@@ -60,6 +60,11 @@ function CommentForm(props) {
     [commentArray]
   );
 
+  const onCancel = () => {
+    setFirstFocus(false);
+    props.updateState(false);
+  }
+
   const onChange = (e) => {
     const { name, value } = e.target;
 
@@ -115,7 +120,7 @@ function CommentForm(props) {
           {firstFocus ? (
             <>
               <div
-                onClick={() => setFirstFocus(false)}
+                onClick={() => onCancel()}
                 id="Comment_btn1"
                 className="Comment_buttons"
               >
