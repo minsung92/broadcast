@@ -22,7 +22,6 @@ function CommentList(props) {
 
   useEffect(() => {
     props.loading(true);
-    setIsUpdate(true);
     setIsEdits(0);
   }, [isUpdate]);
 
