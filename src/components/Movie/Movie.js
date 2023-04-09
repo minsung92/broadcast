@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { moviesApi } from "../api";
-import "../Movie.css";
-import Comment from "./Comment";
+import { moviesApi } from "../../api";
+import "./Movie.css";
+import Comment from "../Comment/Comment";
 
 function Movie(props) {
   const params = useParams();

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import CommentForm from "./CommentForm";
-import CommentList from "./CommentList";
+import CommentForm from "../CommnentForm/CommentForm";
+import CommentList from "../CommentList/CommentList";
 import "./Comment.css";
 
 function Movie_Comment({ UserInfo, MovieId, commentApiUrl }) {

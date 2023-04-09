@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import "../Movies.css";
+import "./Movies.css";
 import { Link } from "react-router-dom";
 
 class Movies extends React.Component {
@@ -19,7 +19,7 @@ class Movies extends React.Component {
             <div className="image_h">
               <div className="wrapper">
                 <img
-                  className="movie__poster"
+                  className="poster"
                   loading="lazy"
                   src={`https://www.themoviedb.org/t/p/w440_and_h660_face/${this.props.poster}`}
                   alt=""

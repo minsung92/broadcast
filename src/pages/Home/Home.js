@@ -1,6 +1,6 @@
 import "./Home.css";
-import Movies from "../components/Movies";
-import { moviesApi } from "../api";
+import Movies from "../../components/Movie/Movies";
+import { moviesApi } from "../../api";
 import React, { Component } from "react";
 
 class Home extends React.Component {

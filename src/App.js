@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Home from "./routes/Home";
-import Movie from "./components/Movie";
-import JoinForm from "./components/JoinForm";
-import LoginForm from "./components/LoginForm";
+import Home from "./pages/Home/Home";
+import Movie from "./components/Movie/Movie";
+import JoinForm from "./components/JoinForm/JoinForm";
+import LoginForm from "./components/LoginForm/LoginForm";
 import Sidebar from "./routes/Sidebar";
 import "./App.css";
 

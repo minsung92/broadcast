@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import CommentForm from "./CommentForm";
+import CommentForm from "../CommnentForm/CommentForm";
+import "./CommentList.css";
 
 function CommentList(props) {
   const apiUrl = props.commentApiUrl;
