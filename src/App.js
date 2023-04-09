@@ -63,7 +63,7 @@ class App extends React.Component {
           <header className="main_h">
             <h1 className="main_title">
               <a className="title_a" href="/">
-                - M'Movie VIEW -
+                - Movie VIEW -
               </a>
             </h1>
             <Sidebar

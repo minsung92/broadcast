@@ -139,11 +139,10 @@ div.review h3 {
   white-space: nowrap;
 }
 
-div.review_list td:nth-child(1) {
-  margin-right: 200px;
+.review_item_comment {
+  width: 80%;
 }
 
-div.review_list td:last-child {
-  display: flex;
-  justify-content: flex-start;
+.review_item_info {
+  width: 20%;
 }

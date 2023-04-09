@@ -21,7 +21,6 @@ class Movies extends React.Component {
                 <img
                   className="movie__poster"
                   loading="lazy"
-                  className="poster"
                   src={`https://www.themoviedb.org/t/p/w440_and_h660_face/${this.props.poster}`}
                   alt=""
                 />

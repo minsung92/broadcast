@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CommentForm from "./CommentForm";
 import CommentList from "./CommentList";
-import "./Movie.css";
+import "./Comment.css";
 
-function Movie_Comment({ children, UserInfo, MovieId, commentApiUrl }) {
+function Movie_Comment({ UserInfo, MovieId, commentApiUrl }) {
   const [mcount, setMcount] = useState(0);
   const apiUrl = commentApiUrl;
   const movieId = MovieId;
@@ -22,7 +22,7 @@ function Movie_Comment({ children, UserInfo, MovieId, commentApiUrl }) {
     if (loading) {
       getData();
     }
-  }, [list, loading]);
+  }, [loading]);
 
   return (
     <div className="movie_panel">

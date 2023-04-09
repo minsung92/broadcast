@@ -3,8 +3,6 @@ import { useParams } from "react-router-dom";
 import { moviesApi } from "../api";
 import "../Movie.css";
 import Comment from "./Comment";
-import CommentForm from "./CommentForm";
-import CommentList from "./CommentList";
 
 function Movie(props) {
   const params = useParams();
@@ -67,7 +65,6 @@ function Movie(props) {
                     <img
                       className="poster lazyload lazyloaded"
                       loading="lazy"
-                      className="poster"
                       src={`https://www.themoviedb.org/t/p/w440_and_h660_face/${movie.backdrop_img}`}
                       alt=""
                     />

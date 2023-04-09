@@ -37,14 +37,11 @@ function CommentList(props) {
         {list.map((item) => {
           return item && isEdits !== item.id ? (
             <li>
-              <tr>
-                <td>{item.comment}</td>
-                <td>
-                  <p className="review_info">
-                    작성날짜 : {item.date} <br /> 작성자 : {item.name}
-                  </p>
-                </td>
-                <td>
+              <div className="review_item_comment">{item.comment}</div>
+              <div className="review_item_info">
+                <div>작성날짜 : {item.date}</div>
+                <div>작성자 : {item.name}</div>
+                <div>
                   <input
                     type="button"
                     value="수정"
@@ -56,8 +53,8 @@ function CommentList(props) {
                     value="삭제"
                     onClick={() => onClickDeleteButton(item.id)}
                   />
-                </td>
-              </tr>
+                </div>
+              </div>
             </li>
           ) : isEdits === item.id ? (
             <li>
